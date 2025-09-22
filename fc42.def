@@ -2,13 +2,17 @@ Bootstrap: docker
 From: fedora:42
 
 %post
-	dnf install -y which git # basic utils
-	dnf install -y python3-scipy python3-matplotlib python3-seaborn \
-	python3-sympy python3-scikit-learn
-	dnf install -y python3-numba root
+	dnf install -y curl which git # basic utils
+	curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+	bash Miniforge3-$(uname)-$(uname -m).sh -b
+	source ~/.bashrc
+
+	conda config --add channels conda-forge
+	conda config --show channels
+	conda config --set channel_priority strict
+
+	mamba install root
 	
-
-
 
         # Create custom os-release
         cat > /etc/../usr/lib/os-release << 'EOF'
