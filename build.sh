@@ -6,13 +6,13 @@ cat <<!EOF!
 Usage: build.sh [-hf] [target]
    -h: print this message and exit
    -f: force rebuild on contianer
-   target = name of sif file to build [alma8, alma9*, alma9noX]
+   target = name of sif file to build fc42*]
 !EOF!
     exit
 } >&2
 
 # default build
-TAINER=alma9
+TAINER=fc42
 
 for arg in "$@"; do
     if [ "$arg" = "-h" ]; then
