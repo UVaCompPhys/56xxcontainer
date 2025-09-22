@@ -2,7 +2,7 @@ Bootstrap: docker
 From: fedora:42
 
 %post
-	dnf install which git # basic utils
+	dnf install -y which git # basic utils
 	dnf install -y python3-scipy python3-matplotlib python3-seaborn \
 	python3-sympy python3-scikit-learn
 	dnf install -y python3-numba root
